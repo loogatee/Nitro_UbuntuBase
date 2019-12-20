@@ -1,0 +1,46 @@
+
+
+Build Linux Kernel and Device Tree
+
+   - instructions:   http://boundarydevices.com/cross-compiling-kernels-2014-edition
+   - Details are under the heading 'Device Tree'
+   - use this config:   nitrogen6xBD_defconfig
+   - copy to:     /opt/linux-imx6/arch/arm/configs
+   - Execute lines 1 thru 8 in this list, where the last line is:
+                   'make uImage modules dtbs -j4'
+
+
+
+format an sdcard with 2 partitions
+
+   - the 1st 80% format as ext4
+   - the last 20%, format as fat32
+   - I used gparted for this
+   - once formatted, make sure it's mounted
+   - we're only concerned with the ext4 section
+
+cd ~
+
+bzr checkout bzr+ssh://devbuntu/opt/repository/projects/ApexLinux/UbuntuCore_CustomFiles_BD
+
+cd UbuntuCore_CustomFiles_BD
+
+edit these files:
+
+    install_bdlinux.sh
+
+    rootfs/etc/hostname
+
+    rootfs/etc/resolv.conf
+
+./install_bdlinux.sh
+
+Boot from sdcard, login as root (password: bdat), issue this command:
+
+./1stboot_config.sh
+
+reboot
+
+
+
+

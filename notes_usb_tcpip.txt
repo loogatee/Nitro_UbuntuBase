@@ -1,0 +1,120 @@
+
+
+
+
+0.  Special Note ------------------------------------------------------------
+
+    The following instructions are what you should do to manually configure
+    the tcp/ip over USB functionality.
+
+    If you are installing from scratch, then everything is automated with the
+    2 scripts:
+
+          - install_bdlinux.sh
+          - at 1st boot on the target:  /root/1stboot_config.sh
+
+
+
+1.  Kernel Config changes ----------------------------------------------------
+
+    Not all of these are related to the tcp/ip over USB functionality.
+    What follows is a list of my kernel configs vs. the default BD kernel configs
+
+# CONFIG_KEYBOARD_GPIO is not set
+CONFIG_SND_PCI=y
+CONFIG_USB_G_MULTI=m
+CONFIG_USB_G_MULTI_RNDIS=y
+# CONFIG_USB_G_MULTI_CDC is not set
+CONFIG_IP_NF_IPTABLES=m
+CONFIG_NF_CONNTRACK=m
+CONFIG_NF_CONNTRACK_IPV4=m
+#CONFIG_NF_NAT=m
+CONFIG_NF_NAT_IPV4=m
+#CONFIG_IP_NF_NAT=m
+CONFIG_IP_NF_TARGET_MASQUERADE=m
+CONFIG_IP_NF_FILTER=m
+CONFIG_IP_NF_MANGLE=m
+CONFIG_USB_XHCI_HCD=y
+CONFIG_IMX_PCIE_EP_MODE_IN_EP_RC_SYS=y
+CONFIG_IMX_PCIE_RC_MODE_IN_EP_RC_SYS=y
+CONFIG_LEDS_GPIO=y
+CONFIG_USB_ACM=y
+
+
+
+2.  Format SDCARD with 2 partitions -----------------------------------------
+
+    The primary (larger) partition should be formatted ext4.   And then a smaller
+    partition should be formatted as fat32.
+
+    The reason for this is the USB_G_MULTI kernel config.   This gives both:
+           - tcp/ip functionality over USB
+           - mass storage device over USB
+
+    Thus the name 'G_MULTI':  gadget with multiple functions.
+
+    The smaller fat32 partition is the disk partition used for the mass storage
+    device.
+
+
+
+3.  create file: /etc/udhcpd.conf -------------------------------------------
+
+    Contents of the file:
+
+start          192.168.7.1
+end            192.168.7.1
+interface      usb0
+max_leases     1
+option subnet  255.255.255.252
+
+
+
+4.  install busybox ----------------------------------------------------------
+
+    We're using busybox for the dhcp server, which provides for an
+    IP address when a computer connects with USB.
+
+    And the other important thing is to create /sbin/udhcpd
+
+apt-get -y install busybox-static
+ln -s /bin/busybox /sbin/udhcpd
+
+
+
+5.  install iptables --------------------------------------------------------
+
+apt-get -y install iptables
+
+
+
+6.  Modify rc.local ---------------------------------------------------------
+
+    The purpose of the mods are:
+
+          - load the g_multi kernel module
+          - provide a static IP address for the USB tcp/ip channel
+          - fire up the dhcp server that listens on the USB tcp/ip channel
+          - configure routing and formwarding for the USB tcp/ip channel
+
+echo 'modprobe g_multi'
+modprobe g_multi file=/dev/mmcblk0p2 cdrom=0 stall=0 removable=1 nofua=1 iManufacturer=BDAT  iSerialNumber=3456 iProduct=Apex2 host_addr=00:1D:7B:11:22:33
+
+sleep 1
+
+ifconfig usb0 192.168.7.2 netmask 255.255.255.252 up
+
+/sbin/udhcpd -S /etc/udhcpd.conf
+
+iptables -F
+iptables -t nat -F
+iptables -t mangle -F
+iptables -X
+iptables -t nat -X
+iptables -t mangle -X
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+iptables -A FORWARD -i usb0 -j ACCEPT
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+
+
