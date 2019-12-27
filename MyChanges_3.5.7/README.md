@@ -75,29 +75,31 @@ N_SERIAL_PORTS 3 did not work due to resource limitation.
 ## imx6q-pinfunc.h
 
 Added this:<br>
-    #define MX6Q_PAD_EIM_D28__UART2_DTE_CTS_B         0x0c4 0x3d8 0x924 0x4 0x0
-    #define MX6Q_PAD_EIM_D28__UART2_DTE_RTS_B         0x0c4 0x3d8 0x000 0x4 0x0
+    #define MX6Q_PAD_EIM_D28__UART2_DTE_CTS_B  &nbsp; &nbsp;       0x0c4 0x3d8 0x924 0x4 0x0<br>
+    #define MX6Q_PAD_EIM_D28__UART2_DTE_RTS_B  &nbsp; &nbsp;       0x0c4 0x3d8 0x000 0x4 0x0
 
 Added this:<br>
-    #define MX6Q_PAD_EIM_D29__UART2_DTE_RTS_B         0x0c8 0x3dc 0x000 0x4 0x0
-    #define MX6Q_PAD_EIM_D29__UART2_DTE_CTS_B         0x0c8 0x3dc 0x924 0x4 0x1
+    #define MX6Q_PAD_EIM_D29__UART2_DTE_RTS_B  &nbsp; &nbsp;       0x0c8 0x3dc 0x000 0x4 0x0<br>
+    #define MX6Q_PAD_EIM_D29__UART2_DTE_CTS_B  &nbsp; &nbsp;       0x0c8 0x3dc 0x924 0x4 0x1
 
 
 Original:<br>
-    #define MX6Q_PAD_ENET_RX_ER__USB_OTG_ID           0x1d8 0x4ec 0x000 0x0 0x0
+    #define MX6Q_PAD_ENET_RX_ER__USB_OTG_ID    &nbsp; &nbsp;       0x1d8 0x4ec 0x000 0x0 0x0<br>
 Mine:<br>
-    #define MX6Q_PAD_ENET_RX_ER__USB_OTG_ID           0x1d8 0x4ec 0x004 0x0 0xff0d0100
+    #define MX6Q_PAD_ENET_RX_ER__USB_OTG_ID    &nbsp; &nbsp;       0x1d8 0x4ec 0x004 0x0 0xff0d0100
 
-Original:
-  #define MX6Q_PAD_GPIO_1__USB_OTG_ID               0x224 0x5f4 0x000 0x3 0x0
-Mine:
-  #define MX6Q_PAD_GPIO_1__USB_OTG_ID               0x224 0x5f4 0x004 0x3 0xff0d0101
+Original:<br>
+    #define MX6Q_PAD_GPIO_1__USB_OTG_ID        &nbsp; &nbsp;       0x224 0x5f4 0x000 0x3 0x0<br>
+Mine:<br>
+    #define MX6Q_PAD_GPIO_1__USB_OTG_ID        &nbsp; &nbsp;       0x224 0x5f4 0x004 0x3 0xff0d0101
 
+---
 
-imx6q-nitrogen6x.dts
--------------------------------------
+## imx6q-nitrogen6x.dts
 
 I removed all of gpio-keys{ };
+
+---
 
 
 hub.c
