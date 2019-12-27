@@ -1,7 +1,7 @@
 
 ---
 
-# usb.h
+## usb.h
 
 1 addition I added:
 
@@ -13,7 +13,7 @@ Might be stuff I added to get xhci USB controller working better.
 
 ---
 
-# nitro6xBD_defconfig   vs.   nitrogen6x_defconfig
+## nitro6xBD_defconfig   vs.   nitrogen6x_defconfig
 
  < # CONFIG_KEYBOARD_GPIO is not set    ( I unset this )<br>
 xxxxxxxxxxx<br>
@@ -50,47 +50,43 @@ xxxxxxxxxxx<br>
 
 ---
 
-# scsi.c
+## scsi.c
 
 
- < 	if (sdev->skip_vpd_pages)
- < 		goto fail;
- < 
+    <    if (sdev->skip_vpd_pages)
+    <        goto fail;
+    < 
 
 I added this small piece.   Trying to improve the xhci USB
 stuff.
 
 This code is now in the mainline scsi.c.
 
-
 ---
 
-multi.c
----------------------------------------------------------
+## multi.c
 
 Changes related to:   #define  N_SERIAL_PORTS    2
 
 N_SERIAL_PORTS 3 did not work due to resource limitation.
 
+---
+
+## imx6q-pinfunc.h
+
+Added this:<br>
+    #define MX6Q_PAD_EIM_D28__UART2_DTE_CTS_B         0x0c4 0x3d8 0x924 0x4 0x0
+    #define MX6Q_PAD_EIM_D28__UART2_DTE_RTS_B         0x0c4 0x3d8 0x000 0x4 0x0
+
+Added this:<br>
+    #define MX6Q_PAD_EIM_D29__UART2_DTE_RTS_B         0x0c8 0x3dc 0x000 0x4 0x0
+    #define MX6Q_PAD_EIM_D29__UART2_DTE_CTS_B         0x0c8 0x3dc 0x924 0x4 0x1
 
 
-
-imx6q-pinfunc.h
--------------------------------------
-
-Added this:
-  #define MX6Q_PAD_EIM_D28__UART2_DTE_CTS_B         0x0c4 0x3d8 0x924 0x4 0x0
-  #define MX6Q_PAD_EIM_D28__UART2_DTE_RTS_B         0x0c4 0x3d8 0x000 0x4 0x0
-
-Added this:
-  #define MX6Q_PAD_EIM_D29__UART2_DTE_RTS_B         0x0c8 0x3dc 0x000 0x4 0x0
-  #define MX6Q_PAD_EIM_D29__UART2_DTE_CTS_B         0x0c8 0x3dc 0x924 0x4 0x1
-
-
-Original:
-  #define MX6Q_PAD_ENET_RX_ER__USB_OTG_ID           0x1d8 0x4ec 0x000 0x0 0x0
-Mine:
-  #define MX6Q_PAD_ENET_RX_ER__USB_OTG_ID           0x1d8 0x4ec 0x004 0x0 0xff0d0100
+Original:<br>
+    #define MX6Q_PAD_ENET_RX_ER__USB_OTG_ID           0x1d8 0x4ec 0x000 0x0 0x0
+Mine:<br>
+    #define MX6Q_PAD_ENET_RX_ER__USB_OTG_ID           0x1d8 0x4ec 0x004 0x0 0xff0d0100
 
 Original:
   #define MX6Q_PAD_GPIO_1__USB_OTG_ID               0x224 0x5f4 0x000 0x3 0x0
