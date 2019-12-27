@@ -75,23 +75,23 @@ N_SERIAL_PORTS 3 did not work due to resource limitation.
 ## imx6q-pinfunc.h
 
 Added this:<br>
-    #define MX6Q_PAD_EIM_D28__UART2_DTE_CTS_B  &nbsp; &nbsp;       0x0c4 0x3d8 0x924 0x4 0x0<br>
-    #define MX6Q_PAD_EIM_D28__UART2_DTE_RTS_B  &nbsp; &nbsp;       0x0c4 0x3d8 0x000 0x4 0x0
+ &nbsp; #define MX6Q_PAD_EIM_D28__UART2_DTE_CTS_B  &nbsp; &nbsp;       0x0c4 0x3d8 0x924 0x4 0x0<br>
+ &nbsp;   #define MX6Q_PAD_EIM_D28__UART2_DTE_RTS_B  &nbsp; &nbsp;       0x0c4 0x3d8 0x000 0x4 0x0
 
 Added this:<br>
-    #define MX6Q_PAD_EIM_D29__UART2_DTE_RTS_B  &nbsp; &nbsp;       0x0c8 0x3dc 0x000 0x4 0x0<br>
-    #define MX6Q_PAD_EIM_D29__UART2_DTE_CTS_B  &nbsp; &nbsp;       0x0c8 0x3dc 0x924 0x4 0x1
+ &nbsp;   #define MX6Q_PAD_EIM_D29__UART2_DTE_RTS_B  &nbsp; &nbsp;       0x0c8 0x3dc 0x000 0x4 0x0<br>
+ &nbsp;   #define MX6Q_PAD_EIM_D29__UART2_DTE_CTS_B  &nbsp; &nbsp;       0x0c8 0x3dc 0x924 0x4 0x1
 
 
 Original:<br>
-    #define MX6Q_PAD_ENET_RX_ER__USB_OTG_ID    &nbsp; &nbsp;       0x1d8 0x4ec 0x000 0x0 0x0<br>
+ &nbsp;   #define MX6Q_PAD_ENET_RX_ER__USB_OTG_ID    &nbsp; &nbsp;       0x1d8 0x4ec 0x000 0x0 0x0<br>
 Mine:<br>
-    #define MX6Q_PAD_ENET_RX_ER__USB_OTG_ID    &nbsp; &nbsp;       0x1d8 0x4ec 0x004 0x0 0xff0d0100
+ &nbsp;   #define MX6Q_PAD_ENET_RX_ER__USB_OTG_ID    &nbsp; &nbsp;       0x1d8 0x4ec 0x004 0x0 0xff0d0100
 
 Original:<br>
-    #define MX6Q_PAD_GPIO_1__USB_OTG_ID        &nbsp; &nbsp;       0x224 0x5f4 0x000 0x3 0x0<br>
+ &nbsp;   #define MX6Q_PAD_GPIO_1__USB_OTG_ID        &nbsp; &nbsp;       0x224 0x5f4 0x000 0x3 0x0<br>
 Mine:<br>
-    #define MX6Q_PAD_GPIO_1__USB_OTG_ID        &nbsp; &nbsp;       0x224 0x5f4 0x004 0x3 0xff0d0101
+ &nbsp;   #define MX6Q_PAD_GPIO_1__USB_OTG_ID        &nbsp; &nbsp;       0x224 0x5f4 0x004 0x3 0xff0d0101
 
 ---
 
@@ -158,12 +158,12 @@ My GPIO driver
 
 
 mine:<br>
-      MX6Q_PAD_GPIO_5__I2C3_SCL   0x4001b0b1<br>
-      MX6Q_PAD_GPIO_16__I2C3_SDA  0x4001b0b1
+ &nbsp;     MX6Q_PAD_GPIO_5__I2C3_SCL   0x4001b0b1<br>
+ &nbsp;     MX6Q_PAD_GPIO_16__I2C3_SDA  0x4001b0b1
 
 original:<br>
-  MX6Q_PAD_GPIO_5__I2C3_SCL   0x4001b8b1<br>
-  MX6Q_PAD_GPIO_16__I2C3_SDA  0x4001b8b1
+  &nbsp;  MX6Q_PAD_GPIO_5__I2C3_SCL   0x4001b8b1<br>
+  &nbsp;  MX6Q_PAD_GPIO_16__I2C3_SDA  0x4001b8b1
 
 I believe I'm turning OFF the I2C functionality, so that I can treat the pins purely as GPIO
 
