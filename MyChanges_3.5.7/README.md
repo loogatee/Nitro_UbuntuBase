@@ -152,7 +152,7 @@ Looks like this line did not get into the 3.16 release.
     obj-$(CONFIG_OF_GPIO)		+= gpiolib-of.o gpio_drv.o
 
 
-Added, so that gpio_drv.o is built
+Added, so that **gpio_drv.o** is built
 
 ---
 
