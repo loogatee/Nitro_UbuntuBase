@@ -15,38 +15,38 @@ Might be stuff I added to get xhci USB controller working better.
 
 # nitro6xBD_defconfig   vs.   nitrogen6x_defconfig
 
- < # CONFIG_KEYBOARD_GPIO is not set    ( I unset this )
-xxxxxxxxxxx
- > CONFIG_KEYBOARD_GPIO=y
+ < # CONFIG_KEYBOARD_GPIO is not set    ( I unset this )<br>
+xxxxxxxxxxx<br>
+ \> CONFIG_KEYBOARD_GPIO=y
 
 
- < CONFIG_SND_PCI=y                     ( I set this )
-xxxxxxxxxxx
- > # CONFIG_SND_PCI is not set
+ < CONFIG_SND_PCI=y                     ( I set this )<br>
+xxxxxxxxxxx<br>
+ \> # CONFIG_SND_PCI is not set
 
 
 ( I added all these at the bottom )
 
- < CONFIG_USB_G_MULTI=m
- < CONFIG_USB_G_MULTI_RNDIS=y
- < # CONFIG_USB_G_MULTI_CDC is not set
- < CONFIG_NETFILTER=y
- < CONFIG_IP_NF_IPTABLES=m
- < CONFIG_NF_CONNTRACK=m
- < CONFIG_NF_CONNTRACK_IPV4=m
- < CONFIG_NF_NAT=m
- < CONFIG_IP_NF_NAT=m
- < CONFIG_IP_NF_TARGET_MASQUERADE=m
- < CONFIG_IP_NF_FILTER=m
- < CONFIG_IP_NF_MANGLE=m
- < CONFIG_USB_SERIAL=y
- < CONFIG_USB_SERIAL_FTDI_SIO=y
- < CONFIG_USB_SERIAL_PL2303=y
- < CONFIG_USB_XHCI_HCD=y
- < CONFIG_IMX_PCIE_EP_MODE_IN_EP_RC_SYS=y
- < CONFIG_IMX_PCIE_RC_MODE_IN_EP_RC_SYS=y
- < CONFIG_LEDS_GPIO=y
- < CONFIG_USB_ACM=y
+ < CONFIG_USB_G_MULTI=m<br>
+ < CONFIG_USB_G_MULTI_RNDIS=y<br>
+ < # CONFIG_USB_G_MULTI_CDC is not set<br>
+ < CONFIG_NETFILTER=y<br>
+ < CONFIG_IP_NF_IPTABLES=m<br>
+ < CONFIG_NF_CONNTRACK=m<br>
+ < CONFIG_NF_CONNTRACK_IPV4=m<br>
+ < CONFIG_NF_NAT=m<br>
+ < CONFIG_IP_NF_NAT=m<br>
+ < CONFIG_IP_NF_TARGET_MASQUERADE=m<br>
+ < CONFIG_IP_NF_FILTER=m<br>
+ < CONFIG_IP_NF_MANGLE=m<br>
+ < CONFIG_USB_SERIAL=y<br>
+ < CONFIG_USB_SERIAL_FTDI_SIO=y<br>
+ < CONFIG_USB_SERIAL_PL2303=y<br>
+ < CONFIG_USB_XHCI_HCD=y<br>
+ < CONFIG_IMX_PCIE_EP_MODE_IN_EP_RC_SYS=y<br>
+ < CONFIG_IMX_PCIE_RC_MODE_IN_EP_RC_SYS=y<br>
+ < CONFIG_LEDS_GPIO=y<br>
+ < CONFIG_USB_ACM=y<br>
 
 ---
 
