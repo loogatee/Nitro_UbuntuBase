@@ -164,7 +164,7 @@ My GPIO driver
 
 ---
 
-## imx6q.dtsi
+### imx6q.dtsi
 
 mine:
 
