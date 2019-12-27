@@ -102,8 +102,7 @@ I removed all of gpio-keys{ };
 ---
 
 
-hub.c
--------------------------------
+## hub.c
 
 Looks like more changes geared towards the xhci usb thing.
 
@@ -112,63 +111,64 @@ found this on the web somewhere.
 
 In routine usb_disable_lpm():
 
-if (!udev || udev->state < USB_STATE_UNAUTHENTICATED || !udev->parent ||
-			udev->speed != USB_SPEED_SUPER ||
-			!udev->lpm_capable)
-		return 0;
+    if (!udev || udev->state < USB_STATE_UNAUTHENTICATED || !udev->parent ||
+                        udev->speed != USB_SPEED_SUPER ||
+                        !udev->lpm_capable)
+               return 0;
 
 The USB_STATE_UNAUTHENTICATED test is not in the mainline.
 
 google searching on that showed a post by Sarah Sharp that this is not the appropriate
 place for the check.
 
+---
 
+## hcd.c
 
-hcd.c
--------------------------------
 
 again....more changes geared towards the xhci usb thing.
 
 Added 1 line in routine:  register_root_hub
 
-   usb_dev->lpm_capable = usb_device_supports_lpm(usb_dev);
+    usb_dev->lpm_capable = usb_device_supports_lpm(usb_dev);
 
 Looks like this line did not get into the 3.16 release.
 
+---
+
+## drivers_gpio_Makefile
 
 
-
-drivers_gpio_Makefile
-----------------------------------
-
-obj-$(CONFIG_OF_GPIO)		+= gpiolib-of.o gpio_drv.o
+    obj-$(CONFIG_OF_GPIO)		+= gpiolib-of.o gpio_drv.o
 
 
 Added, so that gpio_drv.o is built
 
+---
 
 
+## gpio_drv.c
 
-gpio_drv.c
-----------------------------------
 
 My GPIO driver
 
+---
+
+## imx6q.dtsi
 
 
-imx6q.dtsi
-------------------------
+mine:<br>
+      MX6Q_PAD_GPIO_5__I2C3_SCL   0x4001b0b1
+      MX6Q_PAD_GPIO_16__I2C3_SDA  0x4001b0b1
 
-mine:
-  MX6Q_PAD_GPIO_5__I2C3_SCL   0x4001b0b1
-  MX6Q_PAD_GPIO_16__I2C3_SDA  0x4001b0b1
-original:
+original:<br>
   MX6Q_PAD_GPIO_5__I2C3_SCL   0x4001b8b1
   MX6Q_PAD_GPIO_16__I2C3_SDA  0x4001b8b1
 
 I believe I'm turning OFF the I2C functionality, so that I can treat the pins purely as GPIO
 
 
+---
 
 
 
