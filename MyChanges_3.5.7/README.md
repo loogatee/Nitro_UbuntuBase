@@ -158,11 +158,11 @@ My GPIO driver
 
 
 mine:<br>
-      MX6Q_PAD_GPIO_5__I2C3_SCL   0x4001b0b1
+      MX6Q_PAD_GPIO_5__I2C3_SCL   0x4001b0b1<br>
       MX6Q_PAD_GPIO_16__I2C3_SDA  0x4001b0b1
 
 original:<br>
-  MX6Q_PAD_GPIO_5__I2C3_SCL   0x4001b8b1
+  MX6Q_PAD_GPIO_5__I2C3_SCL   0x4001b8b1<br>
   MX6Q_PAD_GPIO_16__I2C3_SDA  0x4001b8b1
 
 I believe I'm turning OFF the I2C functionality, so that I can treat the pins purely as GPIO
