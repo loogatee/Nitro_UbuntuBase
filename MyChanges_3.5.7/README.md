@@ -1,7 +1,7 @@
 
 ---
 
-## usb.h
+### usb.h
 
 1 addition I added:
 
@@ -13,7 +13,7 @@ Might be stuff I added to get xhci USB controller working better.
 
 ---
 
-## nitro6xBD_defconfig   vs.   nitrogen6x_defconfig
+### nitro6xBD_defconfig   vs.   nitrogen6x_defconfig
 
       < # CONFIG_KEYBOARD_GPIO is not set    ( I unset this )
       --------
@@ -50,7 +50,7 @@ Might be stuff I added to get xhci USB controller working better.
 
 ---
 
-## scsi.c
+### scsi.c
 
 
     <    if (sdev->skip_vpd_pages)
@@ -63,7 +63,7 @@ This code is now in the mainline scsi.c.
 
 ---
 
-## multi.c
+### multi.c
 
 Changes related to:
 
@@ -73,7 +73,7 @@ Changes related to:
 
 ---
 
-## imx6q-pinfunc.h
+### imx6q-pinfunc.h
 
 Added this:
 
@@ -105,14 +105,14 @@ Mine:
 
 ---
 
-## imx6q-nitrogen6x.dts
+### imx6q-nitrogen6x.dts
 
 I removed all of **gpio-keys{ };**
 
 ---
 
 
-## hub.c
+### hub.c
 
 Looks like more changes geared towards the xhci usb thing.
 
@@ -133,7 +133,7 @@ place for the check.
 
 ---
 
-## hcd.c
+### hcd.c
 
 
 again....more changes geared towards the xhci usb thing.
@@ -146,7 +146,7 @@ Looks like this line did not get into the 3.16 release.
 
 ---
 
-## drivers_gpio_Makefile
+### drivers_gpio_Makefile
 
 
     obj-$(CONFIG_OF_GPIO)		+= gpiolib-of.o gpio_drv.o
@@ -157,7 +157,7 @@ Added, so that gpio_drv.o is built
 ---
 
 
-## gpio_drv.c
+### gpio_drv.c
 
 
 My GPIO driver
