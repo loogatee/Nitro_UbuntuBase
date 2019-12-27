@@ -91,6 +91,7 @@ Original:
      #define MX6Q_PAD_ENET_RX_ER__USB_OTG_ID         0x1d8 0x4ec 0x000 0x0 0x0
 
 Mine:
+
      #define MX6Q_PAD_ENET_RX_ER__USB_OTG_ID         0x1d8 0x4ec 0x004 0x0 0xff0d0100
 
 <br>
