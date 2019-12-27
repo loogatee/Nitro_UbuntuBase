@@ -1,29 +1,27 @@
 
+---
 
-usb.h
-----------------------
+# usb.h
 
 1 addition I added:
 
-< extern int usb_device_supports_lpm(struct usb_device *udev);
+ < extern int usb_device_supports_lpm(struct usb_device *udev);
 
 
 Might be stuff I added to get xhci USB controller working better.
 
 
+---
 
-
-nitro6xBD_defconfig   vs.   nitrogen6x_defconfig
----------------------------------------------------------
+# nitro6xBD_defconfig   vs.   nitrogen6x_defconfig
 
 < # CONFIG_KEYBOARD_GPIO is not set    ( I unset this )
----
+xxxxxxxxxxx
 > CONFIG_KEYBOARD_GPIO=y
 
 
-
 < CONFIG_SND_PCI=y                     ( I set this )
----
+xxxxxxxxxxx
 > # CONFIG_SND_PCI is not set
 
 
