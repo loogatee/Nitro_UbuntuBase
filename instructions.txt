@@ -33,13 +33,13 @@ Build Linux Kernel and Device Tree
 
 
 
-format an sdcard with 2 partitions
+format an sdcard with 1 partitions
 
-   - the 1st 80% format as ext4
-   - the last 20%, format as fat32
+   - format as ext4
    - I used gparted for this
    - once formatted, make sure it's mounted
-   - we're only concerned with the ext4 section
+
+
 
 cd ~
 
@@ -53,13 +53,12 @@ edit these files:
 
     make_sdcard.sh
 
-    Custom_Files/etc/resolv.conf
+./make_rootfs.sh
+./make_sdcard.sh
 
-./install_bdlinux.sh
+Boot from sdcard, login as root (no password), issue this command:
 
-Boot from sdcard, login as root (password: bdat), issue this command:
-
-./1stboot_config.sh
+sh ./1stboot_config.sh
 
 reboot
 
