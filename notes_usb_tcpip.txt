@@ -98,7 +98,7 @@ apt-get -y install iptables
           - configure routing and formwarding for the USB tcp/ip channel
 
 echo 'modprobe g_multi'
-modprobe g_multi file=/dev/mmcblk0p2 cdrom=0 stall=0 removable=1 nofua=1 iManufacturer=BDAT  iSerialNumber=3456 iProduct=Apex2 host_addr=00:1D:7B:11:22:33
+modprobe g_multi file=/dev/mmcblk0p2 cdrom=0 stall=0 removable=1 nofua=1 iManufacturer=LOOG  iSerialNumber=5050 iProduct=loog2 host_addr=00:1D:7B:11:22:33
 
 sleep 1
 

@@ -4,10 +4,32 @@ Build Linux Kernel and Device Tree
 
    - instructions:   http://boundarydevices.com/cross-compiling-kernels-2014-edition
    - Details are under the heading 'Device Tree'
-   - use this config:   nitrogen6xBD_defconfig
-   - copy to:     /opt/linux-imx6/arch/arm/configs
    - Execute lines 1 thru 8 in this list, where the last line is:
                    'make uImage modules dtbs -j4'
+
+
+          I followed the directions under heading "Device Tree".
+          The directory where I built everything in was /opt.
+          So my kernel is under:  /opt/linux-imx6
+
+          You don't need to execute every single instruction in the list.
+          Start at the top with:  "git clone ...."
+          End with:  "make uImage modules dtbs -j4"
+
+            ~/$ git clone git://github.com/boundarydevices/linux-imx6.git
+            ~/$ cd linux-imx6
+            ~/linux-imx6$ export ARCH=arm
+            ~/linux-imx6$ export CROSS_COMPILE=arm-linux-gnueabihf-
+            ~/linux-imx6$ export LOADADDR=10008000
+            ~/linux-imx6$ git checkout boundary-imx_3.10.17_1.0.2_ga
+            ##  ~/linux-imx6$ make nitrogen6x_defconfig
+            ~/linux-imx6$ make nit6xlite_defconfig
+            ~/linux-imx6$ make uImage modules dtbs -j4
+
+
+   ## - use this config:   nitrogen6xBD_defconfig
+   ## - copy to:     /opt/linux-imx6/arch/arm/configs
+
 
 
 
@@ -21,9 +43,9 @@ format an sdcard with 2 partitions
 
 cd ~
 
-bzr checkout bzr+ssh://devbuntu/opt/repository/projects/ApexLinux/UbuntuCore_CustomFiles_BD
+git clone https://github.com/loogatee/Nitro_UbuntuBase.git
 
-cd UbuntuCore_CustomFiles_BD
+cd Nitro_UbuntuBase
 
 edit these files:
 
@@ -40,6 +62,17 @@ Boot from sdcard, login as root (password: bdat), issue this command:
 ./1stboot_config.sh
 
 reboot
+
+
+
+
+**** Note on mkimage
+**** from:             https://github.com/boundarydevices/u-boot-imx6/tree/boundary-v2017.07/board/boundary/bootscripts
+
+mkimage -A arm -O linux -T script -C none -a 0 -e 0 -n "bootscript" -d 6x_bootscript.txt 6x_bootscript
+
+
+
 
 
 
