@@ -49,11 +49,11 @@ cd Nitro_UbuntuBase
 
 edit these files:
 
-    install_bdlinux.sh
+    make_rootfs.sh
 
-    rootfs/etc/hostname
+    make_sdcard.sh
 
-    rootfs/etc/resolv.conf
+    Custom_Files/etc/resolv.conf
 
 ./install_bdlinux.sh
 
