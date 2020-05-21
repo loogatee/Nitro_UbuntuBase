@@ -4,7 +4,7 @@ set -x
 HOSTNAME="imxyz6"
 
 LINUX_DIR=/home/johnr/linux-imx6
-UBUNTU_NAME="ubuntu-base-14.04.5-base-armhf.tar.gz"
+UBUNTU_NAME="ubuntu-base-14.04.6-base-armhf.tar.gz"
 
 
 
@@ -24,7 +24,7 @@ mkdir rootfs
 #
 #   use wget to grab the ubuntu core release
 #
-#wget http://cdimage.ubuntu.com/ubuntu-base/releases/14.04.5/release/$UBUNTU_NAME
+#wget http://cdimage.ubuntu.com/ubuntu-base/releases/14.04.6/release/$UBUNTU_NAME
 
 cp ~/Downloads/$UBUNTU_NAME .
 

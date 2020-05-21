@@ -1,5 +1,22 @@
 
 
+
+
+
+
+
+This is with an old version of U-boot:
+
+       U-Boot 2014.04-00123-g63ae4a5 (May 14 2014 - 17:10:35)
+
+       CPU:   Freescale i.MX6Q rev1.2 at 792 MHz
+       Reset cause: POR
+       Board: SABRE Lite
+
+
+
+
+
 Build Linux Kernel and Device Tree
 
    - instructions:   http://boundarydevices.com/cross-compiling-kernels-2014-edition
