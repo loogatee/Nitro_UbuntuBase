@@ -87,6 +87,12 @@ reboot
 
 mkimage -A arm -O linux -T script -C none -a 0 -e 0 -n "bootscript" -d 6x_bootscript.txt 6x_bootscript
 
+*****
+*****Example fstab:
+# UNCONFIGURED FSTAB FOR BASE SYSTEM
+proc            /proc           proc    nodev,noexec,nosuid 0       0
+# / was on /dev/sda2 during installation
+UUID=bffef105-f5fc-40f2-89b3-d2d91ea4794f /               ext2    errors=remount-ro 0       1
 
 
 

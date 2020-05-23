@@ -75,6 +75,13 @@ sudo /bin/bash -c "echo nameserver 8.8.8.8 >        rootfs/etc/resolv.conf"
 sudo ln -s /var/run/resolvconf/resolv.conf          rootfs/etc/resolv.conf
 
 #
+#  None of the tty conf's are really needed
+#
+sudo rm -f rootfs/etc/init/tty?.conf
+
+
+
+#
 #   Copy kernel images and device tree .dtb to local rootfs
 #
 sudo cp $LINUX_DIR/vmlinux                                      rootfs/boot
