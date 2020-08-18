@@ -1,7 +1,8 @@
 #!/bin/bash
 set -x
 
-SDCARD=/media/johnr/a70226db-d7db-4c1c-82d6-bbef8c41f203
+#SDCARD=/media/johnr/a70226db-d7db-4c1c-82d6-bbef8c41f203
+SDCARD=/mnt/media2
 
 
 #
