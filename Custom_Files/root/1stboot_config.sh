@@ -4,9 +4,15 @@ ln -sf /usr/share/zoneinfo/America/Phoenix /etc/localtime
 
 locale-gen en_US.UTF-8
 dpkg-reconfigure locales
-apt-get update
-apt-get -y install openssh-server
+#apt-get update
+#apt-get -y install openssh-server
 
+
+cd debs; ./install.sh; cd ..;
+
+
+
+#
 /bin/sed -i "s/PermitRootLogin without-password/PermitRootLogin yes/g" /etc/ssh/sshd_config
 /usr/bin/service ssh restart
 
@@ -36,5 +42,9 @@ sync
 
 #mv /tmp/t.local /etc/rc.local
 #chmod 755 /etc/rc.local
+
+addgroup --gid 222 johnr
+adduser --home /home/johnr --shell /bin/bash --uid 222 --gid 222 johnr
+usermod -aG sudo johnr
 
 
